@@ -35,7 +35,7 @@ Secret key
 sk_test_9cEBvDRyRrPoZzueSJo5pBg700wjuyB608
 
 
-ID do grupo de identidades 
+ID do grupo de identidades
 us-east-1:f7f37d0c-9c3e-4914-89ed-aef649618d83
 
 
@@ -53,5 +53,8 @@ npx aws-api-gateway-cli-test \
 --body='{"content":"hello world","attachment":"hello.jpg"}'
 
 
+
 Testando chamada com segurança
-npx aws-api-gateway-cli-test --username='diego.cassandri@gmail.com' --password='Knoppix886!' --user-pool-id='us-east-1_b5gUR8eQF' --app-client-id='54dtfojbvi2p6esa82v687fhi6' --cognito-region='us-east-1' --identity-pool-id='us-east-1:f7f37d0c-9c3e-4914-89ed-aef649618d83' --invoke-url='https://1q30c1pzdd.execute-api.us-east-1.amazonaws.com/prod' --api-gateway-region='us-east-1' --path-template='/notes' --method='POST' --body='{"content":"hello world","attachment":"hello.jpg"}'
+npx aws-api-gateway-cli-test --username='diego.cassandri@gmail.com' --password='Knoppix886!' --user-pool-id='us-east-1_b5gUR8eQF' --app-client-id='54dtfojbvi2p6esa82v687fhi6' --cognito-region='us-east-1' --identity-pool-id='us-east-1:f7f37d0c-9c3e-4914-89ed-aef649618d83' --invoke-url='https://1q30c1pzdd.execute-api.us-east-1.amazonaws.com/prod' --api-gateway-region='us-east-1' --path-template='/notes' --method='POST' --body='{"content":"hello world","attachment":"hello.jpg"}'\
+
+teste
