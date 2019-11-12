@@ -44,12 +44,7 @@ Session.vim
 .webpack
 .serverless
 
-# env
-env.yml
-.env
 
 # Jetbrains IDEs
 .idea
 
-# Env
-.env
