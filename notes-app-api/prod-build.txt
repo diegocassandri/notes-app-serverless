@@ -1,0 +1,593 @@
+⏳ Build v1 started...
+====================
+⚡️ Init
+====================
+INFO: Build system information
+$ bash --version
+GNU bash, version 4.4.20(1)-release (x86_64-pc-linux-gnu)
+Copyright (C) 2016 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software; you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+$ git version
+git version 2.23.0
+$ node --version
+v10.16.3
+$ npm --version
+6.9.0
+$ yarn --version
+1.12.3
+INFO: Build system environment
+  SEED_APP_NAME=notes-app-serverless
+  SEED_STAGE_NAME=prod
+  SEED_SERVICE_NAME=notes-app-2-api
+  SEED_BUILD_ID=1
+INFO: Decrypting Seed secret environment variables...
+  Decrypting STRIPE_SECRET_KEY
+INFO: Downloading source code to /tmp/seed/source...
+Restoring source code from cache
+$ cd /tmp/seed/source
+$ git -c advice.detachedHead=false checkout 6f219dc384674f629b3a665f77099894062bcd46
+HEAD is now at 6f219dc Setting up our Serverless infrastructure
+INFO: Checking for changes in the notes-app-2-api service...
+Skipping the check since there is only one service in your app.
+Learn more about monorepo deployments - seed.run/docs/deploying-monorepo-apps
+INFO: Validating serverless yaml file...
+INFO: Installing Serverless Framework...
+Installed Serverless Framework version 1.55.1
+You can choose to use a different version by specifying a frameworkVersion in your serverless.yml
+See an example here - https://seed.run/docs/pinning-the-serverless-version
+====================
+🛠 Compile
+====================
+$ cd /tmp/seed/source
+INFO: before_compile hook not found. You can define it in your build spec.
+INFO: Learn more about adding a build spec - seed.run/docs/adding-a-build-spec
+INFO: Looking for package.json...
+INFO: package.json not found. Skipping npm install.
+$ cd /tmp/seed/source/notes-app-api
+INFO: Looking for package.json...
+INFO: package-lock.json found. npm ci will be used.
+$ npm ci
+> fsevents@1.2.9 install /tmp/seed/source/notes-app-api/node_modules/fsevents
+> node install
+> core-js@3.2.1 postinstall /tmp/seed/source/notes-app-api/node_modules/core-js
+> node scripts/postinstall || echo "ignore"
+Thank you for using core-js ( https://github.com/zloirock/core-js ) for polyfilling JavaScript standard library!
+The project needs your help! Please consider supporting of core-js on Open Collective or Patreon: 
+> https://opencollective.com/core-js 
+> https://www.patreon.com/zloirock 
+Also, the author of core-js ( https://github.com/zloirock ) is looking for a good job -)
+added 936 packages in 9.012s
+====================
+📦 Build
+====================
+$ cd /tmp/seed/source
+INFO: before_build hook not found. You can define it in your build spec.
+INFO: Learn more about adding a build spec - seed.run/docs/adding-a-build-spec
+$ cd /tmp/seed/source/notes-app-api
+$ SLS_DEBUG=* serverless package --stage prod --package promote-artifacts
+Serverless: Load command interactiveCli
+Serverless: Load command config
+Serverless: Load command config:credentials
+Serverless: Load command config:tabcompletion
+Serverless: Load command config:tabcompletion:install
+Serverless: Load command config:tabcompletion:uninstall
+Serverless: Load command create
+Serverless: Load command install
+Serverless: Load command package
+Serverless: Load command deploy
+Serverless: Load command deploy:function
+Serverless: Load command deploy:list
+Serverless: Load command deploy:list:functions
+Serverless: Load command invoke
+Serverless: Load command invoke:local
+Serverless: Load command info
+Serverless: Load command logs
+Serverless: Load command metrics
+Serverless: Load command print
+Serverless: Load command remove
+Serverless: Load command rollback
+Serverless: Load command rollback:function
+Serverless: Load command slstats
+Serverless: Load command plugin
+Serverless: Load command plugin
+Serverless: Load command plugin:install
+Serverless: Load command plugin
+Serverless: Load command plugin:uninstall
+Serverless: Load command plugin
+Serverless: Load command plugin:list
+Serverless: Load command plugin
+Serverless: Load command plugin:search
+Serverless: Load command config
+Serverless: Load command config:credentials
+Serverless: Load command rollback
+Serverless: Load command rollback:function
+Serverless: Load command webpack
+Serverless: Load command offline
+Serverless: Load command offline:start
+Serverless: DOTENV: Loading environment variables from .env:
+Serverless: 	 - STRIPE_SECRET_KEY
+Serverless: Load command login
+Serverless: Load command logout
+Serverless: Load command generate-event
+Serverless: Load command test
+Serverless: Load command dashboard
+Serverless: Invoke package
+Serverless: Invoke aws:common:validate
+Serverless: Invoke aws:common:cleanupTempDir
+Serverless: Invoke webpack:validate
+Serverless: Invoke webpack:compile
+Serverless: Bundling with Webpack...
+Serverless: Invoke webpack:package
+Serverless: Packaging service...
+Serverless: Invoke aws:package:finalize
+Serverless: Invoke aws:common:moveArtifactsToPackage
+INFO: Setting Seed secret environment variables as Lambda environment variables
+  Setting STRIPE_SECRET_KEY
+$ cd /tmp/seed/source
+====================
+🚀 Deploy
+====================
+$ cd /tmp/seed/source
+INFO: before_deploy hook not found. You can define it in your build spec.
+INFO: Learn more about adding a build spec - seed.run/docs/adding-a-build-spec
+$ cd /tmp/seed/source/notes-app-api
+$ SLS_DEBUG=* serverless deploy -v --stage prod --package promote-artifacts --force 
+Serverless: Load command interactiveCli
+Serverless: Load command config
+Serverless: Load command config:credentials
+Serverless: Load command config:tabcompletion
+Serverless: Load command config:tabcompletion:install
+Serverless: Load command config:tabcompletion:uninstall
+Serverless: Load command create
+Serverless: Load command install
+Serverless: Load command package
+Serverless: Load command deploy
+Serverless: Load command deploy:function
+Serverless: Load command deploy:list
+Serverless: Load command deploy:list:functions
+Serverless: Load command invoke
+Serverless: Load command invoke:local
+Serverless: Load command info
+Serverless: Load command logs
+Serverless: Load command metrics
+Serverless: Load command print
+Serverless: Load command remove
+Serverless: Load command rollback
+Serverless: Load command rollback:function
+Serverless: Load command slstats
+Serverless: Load command plugin
+Serverless: Load command plugin
+Serverless: Load command plugin:install
+Serverless: Load command plugin
+Serverless: Load command plugin:uninstall
+Serverless: Load command plugin
+Serverless: Load command plugin:list
+Serverless: Load command plugin
+Serverless: Load command plugin:search
+Serverless: Load command config
+Serverless: Load command config:credentials
+Serverless: Load command rollback
+Serverless: Load command rollback:function
+Serverless: Load command webpack
+Serverless: Load command offline
+Serverless: Load command offline:start
+Serverless: DOTENV: Loading environment variables from .env:
+Serverless: 	 - STRIPE_SECRET_KEY
+Serverless: Load command login
+Serverless: Load command logout
+Serverless: Load command generate-event
+Serverless: Load command test
+Serverless: Load command dashboard
+Serverless: Invoke deploy
+Serverless: Invoke aws:common:validate
+Serverless: Invoke aws:common:moveArtifactsToTemp
+Serverless: Invoke aws:deploy:deploy
+Serverless: [AWS cloudformation 400 0.056s 0 retries] describeStacks({ StackName: 'notes-app-2-api-prod' })
+Serverless: Creating Stack...
+Serverless: [AWS cloudformation 200 0.154s 0 retries] createStack({ StackName: 'notes-app-2-api-prod',
+  OnFailure: 'DELETE',
+  Capabilities: [ 'CAPABILITY_IAM', 'CAPABILITY_NAMED_IAM', [length]: 2 ],
+  Parameters: [ [length]: 0 ],
+  TemplateBody:
+   '{"AWSTemplateFormatVersion":"2010-09-09","Description":"The AWS CloudFormation template for this Serverless application","Resources":{"ServerlessDeploymentBucket":{"Type":"AWS::S3::Bucket","Properties":{"BucketEncryption":{"ServerSideEncryptionConfiguration":[{"ServerSideEncryptionByDefault":{"SSEAlgorithm":"AES256"}}]}}}},"Outputs":{"ServerlessDeploymentBucketName":{"Value":{"Ref":"ServerlessDeploymentBucket"}}}}',
+  Tags: [ { Key: 'STAGE', Value: 'prod' }, [length]: 1 ] })
+Serverless: Checking Stack create progress...
+Serverless: [AWS cloudformation 200 0.041s 0 retries] describeStackEvents({ StackName:
+   'arn:aws:cloudformation:us-east-1:102218856995:stack/notes-app-2-api-prod/d657be20-04f3-11ea-b0f0-12d8771823f5' })
+CloudFormation - CREATE_IN_PROGRESS - AWS::CloudFormation::Stack - notes-app-2-api-prod
+CloudFormation - CREATE_IN_PROGRESS - AWS::S3::Bucket - ServerlessDeploymentBucket
+CloudFormation - CREATE_IN_PROGRESS - AWS::S3::Bucket - ServerlessDeploymentBucket
+Serverless: [AWS cloudformation 200 0.043s 0 retries] describeStackEvents({ StackName:
+   'arn:aws:cloudformation:us-east-1:102218856995:stack/notes-app-2-api-prod/d657be20-04f3-11ea-b0f0-12d8771823f5' })
+Serverless: [AWS cloudformation 200 0.044s 0 retries] describeStackEvents({ StackName:
+   'arn:aws:cloudformation:us-east-1:102218856995:stack/notes-app-2-api-prod/d657be20-04f3-11ea-b0f0-12d8771823f5' })
+Serverless: [AWS cloudformation 200 0.038s 0 retries] describeStackEvents({ StackName:
+   'arn:aws:cloudformation:us-east-1:102218856995:stack/notes-app-2-api-prod/d657be20-04f3-11ea-b0f0-12d8771823f5' })
+Serverless: [AWS cloudformation 200 0.04s 0 retries] describeStackEvents({ StackName:
+   'arn:aws:cloudformation:us-east-1:102218856995:stack/notes-app-2-api-prod/d657be20-04f3-11ea-b0f0-12d8771823f5' })
+CloudFormation - CREATE_COMPLETE - AWS::S3::Bucket - ServerlessDeploymentBucket
+Serverless: [AWS cloudformation 200 0.042s 0 retries] describeStackEvents({ StackName:
+   'arn:aws:cloudformation:us-east-1:102218856995:stack/notes-app-2-api-prod/d657be20-04f3-11ea-b0f0-12d8771823f5' })
+CloudFormation - CREATE_COMPLETE - AWS::CloudFormation::Stack - notes-app-2-api-prod
+Serverless: Stack create finished...
+Serverless: [AWS cloudformation 200 0.053s 0 retries] describeStackResource({ StackName: 'notes-app-2-api-prod',
+  LogicalResourceId: 'ServerlessDeploymentBucket' })
+Serverless: [AWS sts 200 0.018s 0 retries] getCallerIdentity({})
+Serverless: Uploading CloudFormation file to S3...
+Serverless: [AWS s3 200 0.076s 0 retries] putObject({ Body:
+   <Buffer 7b 22 41 57 53 54 65 6d 70 6c 61 74 65 46 6f 72 6d 61 74 56 65 72 73 69 6f 6e 22 3a 22 32 30 31 30 2d 30 39 2d 30 39 22 2c 22 44 65 73 63 72 69 70 74 ... >,
+  Bucket:
+   'notes-app-2-api-prod-serverlessdeploymentbucket-bbd97nx4w0ef',
+  Key:
+   'serverless/notes-app-2-api/prod/1573525588374-2019-11-12T02:26:28.374Z/compiled-cloudformation-template.json',
+  ContentType: 'application/json',
+  Metadata:
+   { filesha256: 'ejAGYV5vdGiwUucYvwFgQ/70Pq0KWCJCvRy1p4YzQ94=' } })
+Serverless: Uploading artifacts...
+Serverless: Uploading service create.zip file to S3 (81.8 KB)...
+Serverless: Uploading service get.zip file to S3 (77.47 KB)...
+Serverless: Uploading service list.zip file to S3 (77.48 KB)...
+Serverless: [AWS s3 200 0.098s 0 retries] putObject({ Body:
+   <Buffer 50 4b 03 04 14 00 08 00 08 00 00 00 21 00 00 00 00 00 00 00 00 00 00 00 00 00 09 00 00 00 63 72 65 61 74 65 2e 6a 73 ec bd 7b 5f 5c 37 b2 2e fc 77 f2 ... >,
+  Bucket:
+   'notes-app-2-api-prod-serverlessdeploymentbucket-bbd97nx4w0ef',
+  Key:
+   'serverless/notes-app-2-api/prod/1573525588374-2019-11-12T02:26:28.374Z/create.zip',
+  ContentType: 'application/zip',
+  Metadata:
+   { filesha256: 'Tz2kkzzqq+jNCTjBy9N2hZ2cLsef/gameHFisdy1Tc4=' } })
+Serverless: Uploading service billing.zip file to S3 (144.14 KB)...
+Serverless: [AWS s3 200 0.119s 0 retries] putObject({ Body:
+   <Buffer 50 4b 03 04 14 00 08 00 08 00 00 00 21 00 00 00 00 00 00 00 00 00 00 00 00 00 06 00 00 00 67 65 74 2e 6a 73 ec bd fd 5f 5c b7 d1 37 fc 73 f3 57 1c d3 ... >,
+  Bucket:
+   'notes-app-2-api-prod-serverlessdeploymentbucket-bbd97nx4w0ef',
+  Key:
+   'serverless/notes-app-2-api/prod/1573525588374-2019-11-12T02:26:28.374Z/get.zip',
+  ContentType: 'application/zip',
+  Metadata:
+   { filesha256: 'AzOlsJlPZH6W0TjmY2hSreccd/U/VK3iEpag3soahJU=' } })
+Serverless: Uploading service delete.zip file to S3 (77.28 KB)...
+Serverless: [AWS s3 200 0.069s 0 retries] putObject({ Body:
+   <Buffer 50 4b 03 04 14 00 08 00 08 00 00 00 21 00 00 00 00 00 00 00 00 00 00 00 00 00 07 00 00 00 6c 69 73 74 2e 6a 73 ec bd fd 5f 5c b7 d1 37 fc 73 f3 57 1c ... >,
+  Bucket:
+   'notes-app-2-api-prod-serverlessdeploymentbucket-bbd97nx4w0ef',
+  Key:
+   'serverless/notes-app-2-api/prod/1573525588374-2019-11-12T02:26:28.374Z/list.zip',
+  ContentType: 'application/zip',
+  Metadata:
+   { filesha256: '7mEsiikVv6h5Ed8LWELM21gw5ax0ZT5x1Gf+Gj7lGwQ=' } })
+Serverless: Uploading service update.zip file to S3 (77.97 KB)...
+Serverless: [AWS s3 200 0.084s 0 retries] putObject({ Body:
+   <Buffer 50 4b 03 04 14 00 08 00 08 00 00 00 21 00 00 00 00 00 00 00 00 00 00 00 00 00 0a 00 00 00 62 69 6c 6c 69 6e 67 2e 6a 73 ec bd 7d 43 1b 47 b2 37 fa f7 ... >,
+  Bucket:
+   'notes-app-2-api-prod-serverlessdeploymentbucket-bbd97nx4w0ef',
+  Key:
+   'serverless/notes-app-2-api/prod/1573525588374-2019-11-12T02:26:28.374Z/billing.zip',
+  ContentType: 'application/zip',
+  Metadata:
+   { filesha256: 'Skdt9I7jLCx1h1OhDN0hI6NfMrm6wEgVzdIedPPxvYk=' } })
+Serverless: [AWS s3 200 0.063s 0 retries] putObject({ Body:
+   <Buffer 50 4b 03 04 14 00 08 00 08 00 00 00 21 00 00 00 00 00 00 00 00 00 00 00 00 00 09 00 00 00 75 70 64 61 74 65 2e 6a 73 ec bd fd 5f 5c b7 d1 37 fc 73 f3 ... >,
+  Bucket:
+   'notes-app-2-api-prod-serverlessdeploymentbucket-bbd97nx4w0ef',
+  Key:
+   'serverless/notes-app-2-api/prod/1573525588374-2019-11-12T02:26:28.374Z/update.zip',
+  ContentType: 'application/zip',
+  Metadata:
+   { filesha256: 'n9KaTW74gfHjNzn6EX9n47ywlDU7LhE4xIH020CDNH0=' } })
+Serverless: [AWS s3 200 0.1s 0 retries] putObject({ Body:
+   <Buffer 50 4b 03 04 14 00 08 00 08 00 00 00 21 00 00 00 00 00 00 00 00 00 00 00 00 00 09 00 00 00 64 65 6c 65 74 65 2e 6a 73 ec bd fd 5f 5c b7 d1 37 fc 73 f3 ... >,
+  Bucket:
+   'notes-app-2-api-prod-serverlessdeploymentbucket-bbd97nx4w0ef',
+  Key:
+   'serverless/notes-app-2-api/prod/1573525588374-2019-11-12T02:26:28.374Z/delete.zip',
+  ContentType: 'application/zip',
+  Metadata:
+   { filesha256: '/oGtlmTzMPV+LnpMuf/8R+CC6ZgT1GH9zi8U6isUE64=' } })
+Serverless: Validating template...
+Serverless: [AWS cloudformation 200 0.447s 0 retries] validateTemplate({ TemplateURL:
+   'https://s3.amazonaws.com/notes-app-2-api-prod-serverlessdeploymentbucket-bbd97nx4w0ef/serverless/notes-app-2-api/prod/1573525588374-2019-11-12T02:26:28.374Z/compiled-cloudformation-template.json' })
+Serverless: Updating Stack...
+Serverless: [AWS cloudformation 200 0.636s 0 retries] updateStack({ StackName: 'notes-app-2-api-prod',
+  Capabilities: [ 'CAPABILITY_IAM', 'CAPABILITY_NAMED_IAM', [length]: 2 ],
+  Parameters: [ [length]: 0 ],
+  TemplateURL:
+   'https://s3.amazonaws.com/notes-app-2-api-prod-serverlessdeploymentbucket-bbd97nx4w0ef/serverless/notes-app-2-api/prod/1573525588374-2019-11-12T02:26:28.374Z/compiled-cloudformation-template.json',
+  Tags: [ { Key: 'STAGE', Value: 'prod' }, [length]: 1 ] })
+Serverless: Checking Stack update progress...
+Serverless: [AWS cloudformation 200 0.043s 0 retries] describeStackEvents({ StackName:
+   'arn:aws:cloudformation:us-east-1:102218856995:stack/notes-app-2-api-prod/d657be20-04f3-11ea-b0f0-12d8771823f5' })
+CloudFormation - UPDATE_IN_PROGRESS - AWS::CloudFormation::Stack - notes-app-2-api-prod
+Serverless: [AWS cloudformation 200 0.045s 0 retries] describeStackEvents({ StackName:
+   'arn:aws:cloudformation:us-east-1:102218856995:stack/notes-app-2-api-prod/d657be20-04f3-11ea-b0f0-12d8771823f5' })
+Serverless: [AWS cloudformation 200 0.04s 0 retries] describeStackEvents({ StackName:
+   'arn:aws:cloudformation:us-east-1:102218856995:stack/notes-app-2-api-prod/d657be20-04f3-11ea-b0f0-12d8771823f5' })
+Serverless: [AWS cloudformation 200 0.044s 0 retries] describeStackEvents({ StackName:
+   'arn:aws:cloudformation:us-east-1:102218856995:stack/notes-app-2-api-prod/d657be20-04f3-11ea-b0f0-12d8771823f5' })
+Serverless: [AWS cloudformation 200 0.044s 0 retries] describeStackEvents({ StackName:
+   'arn:aws:cloudformation:us-east-1:102218856995:stack/notes-app-2-api-prod/d657be20-04f3-11ea-b0f0-12d8771823f5' })
+Serverless: [AWS cloudformation 200 0.054s 0 retries] describeStackEvents({ StackName:
+   'arn:aws:cloudformation:us-east-1:102218856995:stack/notes-app-2-api-prod/d657be20-04f3-11ea-b0f0-12d8771823f5' })
+CloudFormation - CREATE_IN_PROGRESS - AWS::Logs::LogGroup - GetLogGroup
+CloudFormation - CREATE_IN_PROGRESS - AWS::S3::Bucket - AttachmentsBucket
+CloudFormation - CREATE_IN_PROGRESS - AWS::DynamoDB::Table - NotesTable
+CloudFormation - CREATE_IN_PROGRESS - AWS::Logs::LogGroup - ListLogGroup
+CloudFormation - CREATE_IN_PROGRESS - AWS::Cognito::UserPool - CognitoUserPool
+CloudFormation - CREATE_IN_PROGRESS - AWS::Logs::LogGroup - BillingLogGroup
+CloudFormation - CREATE_IN_PROGRESS - AWS::Logs::LogGroup - UpdateLogGroup
+CloudFormation - CREATE_IN_PROGRESS - AWS::Logs::LogGroup - CreateLogGroup
+CloudFormation - CREATE_IN_PROGRESS - AWS::Logs::LogGroup - GetLogGroup
+CloudFormation - CREATE_IN_PROGRESS - AWS::ApiGateway::RestApi - ApiGatewayRestApi
+CloudFormation - CREATE_IN_PROGRESS - AWS::Logs::LogGroup - DeleteLogGroup
+CloudFormation - CREATE_IN_PROGRESS - AWS::S3::Bucket - AttachmentsBucket
+CloudFormation - CREATE_IN_PROGRESS - AWS::Logs::LogGroup - ListLogGroup
+CloudFormation - CREATE_IN_PROGRESS - AWS::Logs::LogGroup - BillingLogGroup
+CloudFormation - CREATE_COMPLETE - AWS::Logs::LogGroup - GetLogGroup
+CloudFormation - CREATE_IN_PROGRESS - AWS::Logs::LogGroup - UpdateLogGroup
+CloudFormation - CREATE_IN_PROGRESS - AWS::Logs::LogGroup - CreateLogGroup
+CloudFormation - CREATE_IN_PROGRESS - AWS::Logs::LogGroup - DeleteLogGroup
+CloudFormation - CREATE_IN_PROGRESS - AWS::DynamoDB::Table - NotesTable
+CloudFormation - CREATE_IN_PROGRESS - AWS::ApiGateway::RestApi - ApiGatewayRestApi
+CloudFormation - CREATE_COMPLETE - AWS::Logs::LogGroup - ListLogGroup
+CloudFormation - CREATE_COMPLETE - AWS::Logs::LogGroup - BillingLogGroup
+CloudFormation - CREATE_COMPLETE - AWS::Logs::LogGroup - UpdateLogGroup
+Serverless: [AWS cloudformation 200 0.062s 0 retries] describeStackEvents({ StackName:
+   'arn:aws:cloudformation:us-east-1:102218856995:stack/notes-app-2-api-prod/d657be20-04f3-11ea-b0f0-12d8771823f5' })
+CloudFormation - CREATE_COMPLETE - AWS::Logs::LogGroup - CreateLogGroup
+CloudFormation - CREATE_COMPLETE - AWS::ApiGateway::RestApi - ApiGatewayRestApi
+CloudFormation - CREATE_COMPLETE - AWS::Logs::LogGroup - DeleteLogGroup
+CloudFormation - CREATE_IN_PROGRESS - AWS::Cognito::UserPool - CognitoUserPool
+CloudFormation - CREATE_COMPLETE - AWS::Cognito::UserPool - CognitoUserPool
+CloudFormation - CREATE_IN_PROGRESS - AWS::ApiGateway::Resource - ApiGatewayResourceNotes
+CloudFormation - CREATE_IN_PROGRESS - AWS::ApiGateway::GatewayResponse - GatewayResponseDefault5XX
+CloudFormation - CREATE_IN_PROGRESS - AWS::ApiGateway::Resource - ApiGatewayResourceBilling
+CloudFormation - CREATE_IN_PROGRESS - AWS::ApiGateway::Resource - ApiGatewayResourceNotes
+CloudFormation - CREATE_IN_PROGRESS - AWS::ApiGateway::Resource - ApiGatewayResourceBilling
+CloudFormation - CREATE_IN_PROGRESS - AWS::ApiGateway::GatewayResponse - GatewayResponseDefault4XX
+CloudFormation - CREATE_COMPLETE - AWS::ApiGateway::Resource - ApiGatewayResourceBilling
+CloudFormation - CREATE_COMPLETE - AWS::ApiGateway::Resource - ApiGatewayResourceNotes
+CloudFormation - CREATE_IN_PROGRESS - AWS::ApiGateway::GatewayResponse - GatewayResponseDefault5XX
+CloudFormation - CREATE_COMPLETE - AWS::ApiGateway::GatewayResponse - GatewayResponseDefault5XX
+CloudFormation - CREATE_IN_PROGRESS - AWS::ApiGateway::GatewayResponse - GatewayResponseDefault4XX
+CloudFormation - CREATE_COMPLETE - AWS::ApiGateway::GatewayResponse - GatewayResponseDefault4XX
+CloudFormation - CREATE_IN_PROGRESS - AWS::Cognito::UserPoolClient - CognitoUserPoolClient
+Serverless: [AWS cloudformation 200 0.073s 0 retries] describeStackEvents({ StackName:
+   'arn:aws:cloudformation:us-east-1:102218856995:stack/notes-app-2-api-prod/d657be20-04f3-11ea-b0f0-12d8771823f5' })
+CloudFormation - CREATE_IN_PROGRESS - AWS::ApiGateway::Resource - ApiGatewayResourceNotesIdVar
+CloudFormation - CREATE_IN_PROGRESS - AWS::ApiGateway::Method - ApiGatewayMethodBillingOptions
+CloudFormation - CREATE_IN_PROGRESS - AWS::ApiGateway::Method - ApiGatewayMethodNotesOptions
+CloudFormation - CREATE_IN_PROGRESS - AWS::ApiGateway::Resource - ApiGatewayResourceNotesIdVar
+CloudFormation - CREATE_IN_PROGRESS - AWS::ApiGateway::Method - ApiGatewayMethodBillingOptions
+CloudFormation - CREATE_IN_PROGRESS - AWS::ApiGateway::Method - ApiGatewayMethodNotesOptions
+CloudFormation - CREATE_COMPLETE - AWS::ApiGateway::Resource - ApiGatewayResourceNotesIdVar
+CloudFormation - CREATE_IN_PROGRESS - AWS::Cognito::UserPoolClient - CognitoUserPoolClient
+CloudFormation - CREATE_COMPLETE - AWS::Cognito::UserPoolClient - CognitoUserPoolClient
+CloudFormation - CREATE_COMPLETE - AWS::ApiGateway::Method - ApiGatewayMethodBillingOptions
+CloudFormation - CREATE_COMPLETE - AWS::ApiGateway::Method - ApiGatewayMethodNotesOptions
+CloudFormation - CREATE_IN_PROGRESS - AWS::ApiGateway::Method - ApiGatewayMethodNotesIdVarOptions
+CloudFormation - CREATE_IN_PROGRESS - AWS::Cognito::IdentityPool - CognitoIdentityPool
+CloudFormation - CREATE_IN_PROGRESS - AWS::ApiGateway::Method - ApiGatewayMethodNotesIdVarOptions
+Serverless: [AWS cloudformation 200 0.081s 0 retries] describeStackEvents({ StackName:
+   'arn:aws:cloudformation:us-east-1:102218856995:stack/notes-app-2-api-prod/d657be20-04f3-11ea-b0f0-12d8771823f5' })
+CloudFormation - CREATE_COMPLETE - AWS::ApiGateway::Method - ApiGatewayMethodNotesIdVarOptions
+CloudFormation - CREATE_IN_PROGRESS - AWS::Cognito::IdentityPool - CognitoIdentityPool
+CloudFormation - CREATE_COMPLETE - AWS::Cognito::IdentityPool - CognitoIdentityPool
+Serverless: [AWS cloudformation 200 0.088s 0 retries] describeStackEvents({ StackName:
+   'arn:aws:cloudformation:us-east-1:102218856995:stack/notes-app-2-api-prod/d657be20-04f3-11ea-b0f0-12d8771823f5' })
+Serverless: [AWS cloudformation 200 0.079s 0 retries] describeStackEvents({ StackName:
+   'arn:aws:cloudformation:us-east-1:102218856995:stack/notes-app-2-api-prod/d657be20-04f3-11ea-b0f0-12d8771823f5' })
+CloudFormation - CREATE_COMPLETE - AWS::S3::Bucket - AttachmentsBucket
+CloudFormation - CREATE_IN_PROGRESS - AWS::IAM::Role - CognitoAuthRole
+CloudFormation - CREATE_IN_PROGRESS - AWS::IAM::Role - CognitoAuthRole
+Serverless: [AWS cloudformation 200 0.071s 0 retries] describeStackEvents({ StackName:
+   'arn:aws:cloudformation:us-east-1:102218856995:stack/notes-app-2-api-prod/d657be20-04f3-11ea-b0f0-12d8771823f5' })
+Serverless: [AWS cloudformation 200 0.072s 0 retries] describeStackEvents({ StackName:
+   'arn:aws:cloudformation:us-east-1:102218856995:stack/notes-app-2-api-prod/d657be20-04f3-11ea-b0f0-12d8771823f5' })
+CloudFormation - CREATE_COMPLETE - AWS::DynamoDB::Table - NotesTable
+CloudFormation - CREATE_IN_PROGRESS - AWS::IAM::Role - IamRoleLambdaExecution
+Serverless: [AWS cloudformation 200 0.07s 0 retries] describeStackEvents({ StackName:
+   'arn:aws:cloudformation:us-east-1:102218856995:stack/notes-app-2-api-prod/d657be20-04f3-11ea-b0f0-12d8771823f5' })
+CloudFormation - CREATE_IN_PROGRESS - AWS::IAM::Role - IamRoleLambdaExecution
+CloudFormation - CREATE_COMPLETE - AWS::IAM::Role - CognitoAuthRole
+Serverless: [AWS cloudformation 200 0.086s 0 retries] describeStackEvents({ StackName:
+   'arn:aws:cloudformation:us-east-1:102218856995:stack/notes-app-2-api-prod/d657be20-04f3-11ea-b0f0-12d8771823f5' })
+CloudFormation - CREATE_IN_PROGRESS - AWS::Cognito::IdentityPoolRoleAttachment - CognitoIdentityPoolRoles
+CloudFormation - CREATE_IN_PROGRESS - AWS::Cognito::IdentityPoolRoleAttachment - CognitoIdentityPoolRoles
+CloudFormation - CREATE_COMPLETE - AWS::Cognito::IdentityPoolRoleAttachment - CognitoIdentityPoolRoles
+Serverless: [AWS cloudformation 200 0.075s 0 retries] describeStackEvents({ StackName:
+   'arn:aws:cloudformation:us-east-1:102218856995:stack/notes-app-2-api-prod/d657be20-04f3-11ea-b0f0-12d8771823f5' })
+Serverless: [AWS cloudformation 200 0.084s 0 retries] describeStackEvents({ StackName:
+   'arn:aws:cloudformation:us-east-1:102218856995:stack/notes-app-2-api-prod/d657be20-04f3-11ea-b0f0-12d8771823f5' })
+CloudFormation - CREATE_COMPLETE - AWS::IAM::Role - IamRoleLambdaExecution
+CloudFormation - CREATE_IN_PROGRESS - AWS::Lambda::Function - ListLambdaFunction
+CloudFormation - CREATE_IN_PROGRESS - AWS::Lambda::Function - UpdateLambdaFunction
+CloudFormation - CREATE_IN_PROGRESS - AWS::Lambda::Function - GetLambdaFunction
+CloudFormation - CREATE_IN_PROGRESS - AWS::Lambda::Function - DeleteLambdaFunction
+CloudFormation - CREATE_IN_PROGRESS - AWS::Lambda::Function - CreateLambdaFunction
+CloudFormation - CREATE_IN_PROGRESS - AWS::Lambda::Function - ListLambdaFunction
+Serverless: [AWS cloudformation 200 0.104s 0 retries] describeStackEvents({ StackName:
+   'arn:aws:cloudformation:us-east-1:102218856995:stack/notes-app-2-api-prod/d657be20-04f3-11ea-b0f0-12d8771823f5' })
+CloudFormation - CREATE_IN_PROGRESS - AWS::Lambda::Function - GetLambdaFunction
+CloudFormation - CREATE_IN_PROGRESS - AWS::Lambda::Function - UpdateLambdaFunction
+CloudFormation - CREATE_IN_PROGRESS - AWS::Lambda::Function - DeleteLambdaFunction
+CloudFormation - CREATE_IN_PROGRESS - AWS::Lambda::Function - CreateLambdaFunction
+CloudFormation - CREATE_IN_PROGRESS - AWS::Lambda::Function - BillingLambdaFunction
+CloudFormation - CREATE_COMPLETE - AWS::Lambda::Function - ListLambdaFunction
+CloudFormation - CREATE_COMPLETE - AWS::Lambda::Function - GetLambdaFunction
+CloudFormation - CREATE_COMPLETE - AWS::Lambda::Function - UpdateLambdaFunction
+CloudFormation - CREATE_COMPLETE - AWS::Lambda::Function - DeleteLambdaFunction
+CloudFormation - CREATE_COMPLETE - AWS::Lambda::Function - CreateLambdaFunction
+CloudFormation - CREATE_IN_PROGRESS - AWS::Lambda::Function - BillingLambdaFunction
+CloudFormation - CREATE_COMPLETE - AWS::Lambda::Function - BillingLambdaFunction
+CloudFormation - CREATE_IN_PROGRESS - AWS::Lambda::Version - ListLambdaVersioncIqPxRC7Nwhazb10aWaKyPuAZLNFOtyn43CHoTOkQ
+CloudFormation - CREATE_IN_PROGRESS - AWS::Lambda::Permission - ListLambdaPermissionApiGateway
+CloudFormation - CREATE_IN_PROGRESS - AWS::ApiGateway::Method - ApiGatewayMethodNotesGet
+CloudFormation - CREATE_IN_PROGRESS - AWS::Lambda::Permission - UpdateLambdaPermissionApiGateway
+CloudFormation - CREATE_IN_PROGRESS - AWS::Lambda::Permission - ListLambdaPermissionApiGateway
+CloudFormation - CREATE_IN_PROGRESS - AWS::Lambda::Version - UpdateLambdaVersionmHX4gySWkKB1KrxAMziOhZ4elv56BBFURihkDo8ouQ
+CloudFormation - CREATE_IN_PROGRESS - AWS::ApiGateway::Method - ApiGatewayMethodNotesIdVarDelete
+CloudFormation - CREATE_IN_PROGRESS - AWS::Lambda::Permission - DeleteLambdaPermissionApiGateway
+CloudFormation - CREATE_IN_PROGRESS - AWS::Lambda::Version - GetLambdaVersion1Y6Fmzdz0E8dkd6XlgaUddkVt3kW26WCzVtm93i3U
+CloudFormation - CREATE_IN_PROGRESS - AWS::Lambda::Version - CreateLambdaVersiongf0iMaPOHTGOP0tmGiOxDzhQGjiGfurR7W26QRXPw
+CloudFormation - CREATE_IN_PROGRESS - AWS::ApiGateway::Method - ApiGatewayMethodNotesIdVarGet
+CloudFormation - CREATE_IN_PROGRESS - AWS::Lambda::Version - ListLambdaVersioncIqPxRC7Nwhazb10aWaKyPuAZLNFOtyn43CHoTOkQ
+CloudFormation - CREATE_IN_PROGRESS - AWS::ApiGateway::Method - ApiGatewayMethodNotesGet
+CloudFormation - CREATE_IN_PROGRESS - AWS::Lambda::Permission - GetLambdaPermissionApiGateway
+CloudFormation - CREATE_IN_PROGRESS - AWS::Lambda::Permission - UpdateLambdaPermissionApiGateway
+CloudFormation - CREATE_IN_PROGRESS - AWS::ApiGateway::Method - ApiGatewayMethodNotesIdVarPut
+CloudFormation - CREATE_IN_PROGRESS - AWS::Lambda::Version - DeleteLambdaVersionHTZqvmu1tKpnt9xpjChoYrOJld3OJY00vjj8zx60WM
+CloudFormation - CREATE_IN_PROGRESS - AWS::ApiGateway::Method - ApiGatewayMethodNotesIdVarDelete
+CloudFormation - CREATE_IN_PROGRESS - AWS::Lambda::Permission - DeleteLambdaPermissionApiGateway
+CloudFormation - CREATE_IN_PROGRESS - AWS::ApiGateway::Method - ApiGatewayMethodNotesPost
+CloudFormation - CREATE_IN_PROGRESS - AWS::ApiGateway::Method - ApiGatewayMethodNotesIdVarGet
+CloudFormation - CREATE_COMPLETE - AWS::Lambda::Version - ListLambdaVersioncIqPxRC7Nwhazb10aWaKyPuAZLNFOtyn43CHoTOkQ
+CloudFormation - CREATE_IN_PROGRESS - AWS::Lambda::Version - UpdateLambdaVersionmHX4gySWkKB1KrxAMziOhZ4elv56BBFURihkDo8ouQ
+CloudFormation - CREATE_IN_PROGRESS - AWS::Lambda::Permission - CreateLambdaPermissionApiGateway
+CloudFormation - CREATE_IN_PROGRESS - AWS::Lambda::Version - GetLambdaVersion1Y6Fmzdz0E8dkd6XlgaUddkVt3kW26WCzVtm93i3U
+CloudFormation - CREATE_IN_PROGRESS - AWS::Lambda::Permission - GetLambdaPermissionApiGateway
+CloudFormation - CREATE_IN_PROGRESS - AWS::ApiGateway::Method - ApiGatewayMethodNotesIdVarPut
+CloudFormation - CREATE_IN_PROGRESS - AWS::ApiGateway::Method - ApiGatewayMethodNotesPost
+CloudFormation - CREATE_IN_PROGRESS - AWS::Lambda::Version - CreateLambdaVersiongf0iMaPOHTGOP0tmGiOxDzhQGjiGfurR7W26QRXPw
+CloudFormation - CREATE_COMPLETE - AWS::ApiGateway::Method - ApiGatewayMethodNotesIdVarDelete
+CloudFormation - CREATE_COMPLETE - AWS::ApiGateway::Method - ApiGatewayMethodNotesGet
+CloudFormation - CREATE_IN_PROGRESS - AWS::Lambda::Version - DeleteLambdaVersionHTZqvmu1tKpnt9xpjChoYrOJld3OJY00vjj8zx60WM
+CloudFormation - CREATE_IN_PROGRESS - AWS::Lambda::Permission - CreateLambdaPermissionApiGateway
+CloudFormation - CREATE_COMPLETE - AWS::Lambda::Version - UpdateLambdaVersionmHX4gySWkKB1KrxAMziOhZ4elv56BBFURihkDo8ouQ
+CloudFormation - CREATE_COMPLETE - AWS::ApiGateway::Method - ApiGatewayMethodNotesIdVarGet
+CloudFormation - CREATE_COMPLETE - AWS::Lambda::Version - GetLambdaVersion1Y6Fmzdz0E8dkd6XlgaUddkVt3kW26WCzVtm93i3U
+CloudFormation - CREATE_COMPLETE - AWS::Lambda::Version - CreateLambdaVersiongf0iMaPOHTGOP0tmGiOxDzhQGjiGfurR7W26QRXPw
+CloudFormation - CREATE_COMPLETE - AWS::Lambda::Version - DeleteLambdaVersionHTZqvmu1tKpnt9xpjChoYrOJld3OJY00vjj8zx60WM
+CloudFormation - CREATE_COMPLETE - AWS::ApiGateway::Method - ApiGatewayMethodNotesPost
+CloudFormation - CREATE_IN_PROGRESS - AWS::Lambda::Permission - BillingLambdaPermissionApiGateway
+CloudFormation - CREATE_IN_PROGRESS - AWS::ApiGateway::Method - ApiGatewayMethodBillingPost
+CloudFormation - CREATE_COMPLETE - AWS::ApiGateway::Method - ApiGatewayMethodNotesIdVarPut
+CloudFormation - CREATE_IN_PROGRESS - AWS::ApiGateway::Method - ApiGatewayMethodBillingPost
+CloudFormation - CREATE_IN_PROGRESS - AWS::Lambda::Permission - BillingLambdaPermissionApiGateway
+Serverless: [AWS cloudformation 200 0.102s 0 retries] describeStackEvents({ StackName:
+   'arn:aws:cloudformation:us-east-1:102218856995:stack/notes-app-2-api-prod/d657be20-04f3-11ea-b0f0-12d8771823f5' })
+CloudFormation - CREATE_IN_PROGRESS - AWS::Lambda::Version - BillingLambdaVersionP6MoqpreqADsFGAkaMCkHgEIqOnGDp3EAOSTVlsvdV8
+CloudFormation - CREATE_COMPLETE - AWS::ApiGateway::Method - ApiGatewayMethodBillingPost
+CloudFormation - CREATE_IN_PROGRESS - AWS::Lambda::Version - BillingLambdaVersionP6MoqpreqADsFGAkaMCkHgEIqOnGDp3EAOSTVlsvdV8
+CloudFormation - CREATE_COMPLETE - AWS::Lambda::Version - BillingLambdaVersionP6MoqpreqADsFGAkaMCkHgEIqOnGDp3EAOSTVlsvdV8
+CloudFormation - CREATE_IN_PROGRESS - AWS::ApiGateway::Deployment - ApiGatewayDeployment1573525585128
+CloudFormation - CREATE_IN_PROGRESS - AWS::ApiGateway::Deployment - ApiGatewayDeployment1573525585128
+CloudFormation - CREATE_COMPLETE - AWS::ApiGateway::Deployment - ApiGatewayDeployment1573525585128
+Serverless: [AWS cloudformation 200 0.088s 0 retries] describeStackEvents({ StackName:
+   'arn:aws:cloudformation:us-east-1:102218856995:stack/notes-app-2-api-prod/d657be20-04f3-11ea-b0f0-12d8771823f5' })
+CloudFormation - CREATE_COMPLETE - AWS::Lambda::Permission - ListLambdaPermissionApiGateway
+CloudFormation - CREATE_COMPLETE - AWS::Lambda::Permission - UpdateLambdaPermissionApiGateway
+CloudFormation - CREATE_COMPLETE - AWS::Lambda::Permission - DeleteLambdaPermissionApiGateway
+CloudFormation - CREATE_COMPLETE - AWS::Lambda::Permission - GetLambdaPermissionApiGateway
+CloudFormation - CREATE_COMPLETE - AWS::Lambda::Permission - CreateLambdaPermissionApiGateway
+CloudFormation - CREATE_COMPLETE - AWS::Lambda::Permission - BillingLambdaPermissionApiGateway
+Serverless: [AWS cloudformation 200 0.096s 0 retries] describeStackEvents({ StackName:
+   'arn:aws:cloudformation:us-east-1:102218856995:stack/notes-app-2-api-prod/d657be20-04f3-11ea-b0f0-12d8771823f5' })
+CloudFormation - UPDATE_COMPLETE_CLEANUP_IN_PROGRESS - AWS::CloudFormation::Stack - notes-app-2-api-prod
+CloudFormation - UPDATE_COMPLETE - AWS::CloudFormation::Stack - notes-app-2-api-prod
+Serverless: Stack update finished...
+Serverless: Invoke aws:info
+Serverless: [AWS cloudformation 200 0.062s 0 retries] describeStacks({ StackName: 'notes-app-2-api-prod' })
+Serverless: [AWS cloudformation 200 0.069s 0 retries] listStackResources({ StackName: 'notes-app-2-api-prod' })
+Service Information
+service: notes-app-2-api
+stage: prod
+region: us-east-1
+stack: notes-app-2-api-prod
+resources: 49
+api keys:
+  None
+endpoints:
+  POST - https://wmrvb5s3hk.execute-api.us-east-1.amazonaws.com/prod/notes
+  GET - https://wmrvb5s3hk.execute-api.us-east-1.amazonaws.com/prod/notes/{id}
+  GET - https://wmrvb5s3hk.execute-api.us-east-1.amazonaws.com/prod/notes
+  PUT - https://wmrvb5s3hk.execute-api.us-east-1.amazonaws.com/prod/notes/{id}
+  DELETE - https://wmrvb5s3hk.execute-api.us-east-1.amazonaws.com/prod/notes/{id}
+  POST - https://wmrvb5s3hk.execute-api.us-east-1.amazonaws.com/prod/billing
+functions:
+  create: notes-app-2-api-prod-create
+  get: notes-app-2-api-prod-get
+  list: notes-app-2-api-prod-list
+  update: notes-app-2-api-prod-update
+  delete: notes-app-2-api-prod-delete
+  billing: notes-app-2-api-prod-billing
+layers:
+  None
+Stack Outputs
+AttachmentsBucketName: notes-app-2-api-prod-attachmentsbucket-1rcqrzorc72be
+UserPoolClientId: 3o3h5v2dbm40jdf9qvu5rko3mu
+UserPoolId: us-east-1_gGvh3jepV
+DeleteLambdaFunctionQualifiedArn: arn:aws:lambda:us-east-1:102218856995:function:notes-app-2-api-prod-delete:1
+CreateLambdaFunctionQualifiedArn: arn:aws:lambda:us-east-1:102218856995:function:notes-app-2-api-prod-create:1
+GetLambdaFunctionQualifiedArn: arn:aws:lambda:us-east-1:102218856995:function:notes-app-2-api-prod-get:1
+UpdateLambdaFunctionQualifiedArn: arn:aws:lambda:us-east-1:102218856995:function:notes-app-2-api-prod-update:1
+IdentityPoolId: us-east-1:def749da-18b6-44c0-accd-898a71868767
+BillingLambdaFunctionQualifiedArn: arn:aws:lambda:us-east-1:102218856995:function:notes-app-2-api-prod-billing:1
+ListLambdaFunctionQualifiedArn: arn:aws:lambda:us-east-1:102218856995:function:notes-app-2-api-prod-list:1
+ServiceEndpoint: https://wmrvb5s3hk.execute-api.us-east-1.amazonaws.com/prod
+ServerlessDeploymentBucketName: notes-app-2-api-prod-serverlessdeploymentbucket-bbd97nx4w0ef
+Serverless: [AWS sts 200 0.014s 0 retries] getCallerIdentity({})
+Serverless: [AWS apigateway 200 0.066s 0 retries] getRestApis({ position: undefined, limit: 500 })
+Serverless: [AWS apigateway 200 0.046s 0 retries] getStage({ restApiId: 'wmrvb5s3hk', stageName: 'prod' })
+Serverless: [AWS apigateway 200 0.246s 0 retries] updateStage({ restApiId: 'wmrvb5s3hk',
+  stageName: 'prod',
+  patchOperations:
+   [ { op: 'replace', path: '/tracingEnabled', value: 'false' },
+     { op: 'replace', path: '/*/*/logging/dataTrace', value: 'false' },
+     { op: 'replace', path: '/*/*/logging/loglevel', value: 'OFF' },
+     [length]: 3 ] })
+Serverless: [AWS cloudwatchlogs 400 0.027s 0 retries] deleteLogGroup({ logGroupName: '/aws/api-gateway/notes-app-2-api-prod' })
+Serverless: Invoke aws:deploy:finalize
+Serverless: [AWS s3 200 0.043s 0 retries] listObjectsV2({ Bucket:
+   'notes-app-2-api-prod-serverlessdeploymentbucket-bbd97nx4w0ef',
+  Prefix: 'serverless/notes-app-2-api/prod' })
+Serverless: Invoke aws:common:cleanupTempDir
+Serverless: Run the "serverless" command to setup monitoring, troubleshooting and testing.
+$ serverless info --verbose --stage prod 
+Serverless: DOTENV: Loading environment variables from .env:
+Serverless: 	 - STRIPE_SECRET_KEY
+Service Information
+service: notes-app-2-api
+stage: prod
+region: us-east-1
+stack: notes-app-2-api-prod
+resources: 49
+api keys:
+  None
+endpoints:
+  POST - https://wmrvb5s3hk.execute-api.us-east-1.amazonaws.com/prod/notes
+  GET - https://wmrvb5s3hk.execute-api.us-east-1.amazonaws.com/prod/notes/{id}
+  GET - https://wmrvb5s3hk.execute-api.us-east-1.amazonaws.com/prod/notes
+  PUT - https://wmrvb5s3hk.execute-api.us-east-1.amazonaws.com/prod/notes/{id}
+  DELETE - https://wmrvb5s3hk.execute-api.us-east-1.amazonaws.com/prod/notes/{id}
+  POST - https://wmrvb5s3hk.execute-api.us-east-1.amazonaws.com/prod/billing
+functions:
+  create: notes-app-2-api-prod-create
+  get: notes-app-2-api-prod-get
+  list: notes-app-2-api-prod-list
+  update: notes-app-2-api-prod-update
+  delete: notes-app-2-api-prod-delete
+  billing: notes-app-2-api-prod-billing
+layers:
+  None
+Stack Outputs
+AttachmentsBucketName: notes-app-2-api-prod-attachmentsbucket-1rcqrzorc72be
+UserPoolClientId: 3o3h5v2dbm40jdf9qvu5rko3mu
+UserPoolId: us-east-1_gGvh3jepV
+DeleteLambdaFunctionQualifiedArn: arn:aws:lambda:us-east-1:102218856995:function:notes-app-2-api-prod-delete:1
+CreateLambdaFunctionQualifiedArn: arn:aws:lambda:us-east-1:102218856995:function:notes-app-2-api-prod-create:1
+GetLambdaFunctionQualifiedArn: arn:aws:lambda:us-east-1:102218856995:function:notes-app-2-api-prod-get:1
+UpdateLambdaFunctionQualifiedArn: arn:aws:lambda:us-east-1:102218856995:function:notes-app-2-api-prod-update:1
+IdentityPoolId: us-east-1:def749da-18b6-44c0-accd-898a71868767
+BillingLambdaFunctionQualifiedArn: arn:aws:lambda:us-east-1:102218856995:function:notes-app-2-api-prod-billing:1
+ListLambdaFunctionQualifiedArn: arn:aws:lambda:us-east-1:102218856995:function:notes-app-2-api-prod-list:1
+ServiceEndpoint: https://wmrvb5s3hk.execute-api.us-east-1.amazonaws.com/prod
+ServerlessDeploymentBucketName: notes-app-2-api-prod-serverlessdeploymentbucket-bbd97nx4w0ef
+$ cd /tmp/seed/source
+INFO: after_deploy hook not found. You can define it in your build spec.
+INFO: Learn more about adding a build spec - seed.run/docs/adding-a-build-spec
+====================
+🗑 Cleanup
+====================
+✅ Build v1 successfully deployed in 3m 12s!
