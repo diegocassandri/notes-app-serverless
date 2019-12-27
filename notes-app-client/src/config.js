@@ -1,12 +1,13 @@
 export default {
 MAX_ATTACHMENT_SIZE: 5000000,
+STRIPE_KEY: "pk_test_lwWQCcxMhMukMtRNMUr7fNnG00yjJ2zb6A",
   s3: {
     REGION: "us-east-1",
     BUCKET: "note-app-teste"
   },
   apiGateway: {
     REGION: "us-east-1",
-    URL: "https://wmrvb5s3hk.execute-api.us-east-1.amazonaws.com/prod"
+    URL: "https://1q30c1pzdd.execute-api.us-east-1.amazonaws.com/prod"
   },
   cognito: {
     REGION: "us-east-1",
