@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import { FormGroup, FormControl, ControlLabel,Breadcrumb } from "react-bootstrap";
 import LoaderButton from "../components/LoaderButton";
 import config from "../config";
 import "./NewNote.css";
@@ -53,6 +53,12 @@ function createNote(note) {
 
   return (
     <div className="NewNote">
+    <Breadcrumb>
+        <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
+       
+        <Breadcrumb.Item active>New Note</Breadcrumb.Item>
+    </Breadcrumb>
+
       <form onSubmit={handleSubmit}>
         <FormGroup controlId="content">
           <FormControl

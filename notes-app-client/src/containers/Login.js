@@ -56,6 +56,7 @@ export default function Login(props) {
           bsSize="large"
           isLoading={isLoading}
           disabled={!validateForm()}
+          bsStyle="primary"
         >
           Login
         </LoaderButton>

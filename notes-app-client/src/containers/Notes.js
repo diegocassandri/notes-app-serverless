@@ -1,10 +1,11 @@
 import React, { useRef, useState, useEffect } from "react";
 import { API, Storage } from "aws-amplify";
-import { FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import { FormGroup, FormControl, ControlLabel, Breadcrumb } from "react-bootstrap";
 import LoaderButton from "../components/LoaderButton";
 import config from "../config";
 import "./Notes.css";
 import { s3Upload } from "../libs/awsLib";
+
 
 export default function Notes(props) {
     const file = useRef(null);
@@ -113,7 +114,14 @@ async function handleDelete(event) {
 }
 
 return (
+
+
   <div className="Notes">
+    <Breadcrumb>
+        <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
+       
+        <Breadcrumb.Item active>Notes</Breadcrumb.Item>
+    </Breadcrumb>
     {note && (
       <form onSubmit={handleSubmit}>
         <FormGroup controlId="content">
@@ -144,7 +152,6 @@ return (
         <LoaderButton
           block
           type="submit"
-          bsSize="large"
           bsStyle="primary"
           isLoading={isLoading}
           disabled={!validateForm()}
@@ -153,13 +160,13 @@ return (
         </LoaderButton>
         <LoaderButton
           block
-          bsSize="large"
           bsStyle="danger"
           onClick={handleDelete}
           isLoading={isDeleting}
         >
           Delete
         </LoaderButton>
+        
       </form>
     )}
   </div>

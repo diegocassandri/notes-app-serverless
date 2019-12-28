@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { PageHeader, ListGroup, ListGroupItem } from "react-bootstrap";
+import { PageHeader, ListGroup, ListGroupItem, Breadcrumb } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import "./Home.css";
 import { API } from "aws-amplify";
@@ -81,6 +81,10 @@ function loadNotes() {
 
   return (
     <div className="Home">
+      <Breadcrumb>
+        <Breadcrumb.Item active href="/">Home</Breadcrumb.Item>
+       
+    </Breadcrumb>
       {props.isAuthenticated ? renderNotes() : renderLander()}
     </div>
   );
